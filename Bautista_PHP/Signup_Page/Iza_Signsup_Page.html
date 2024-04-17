@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Iza's Signup Page</title>
+    <link rel="shortcut icon" type="image/png" href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678129-lock-512.png">
+    <link rel="stylesheet" href="Signup_Page_CSS.css">
+
+  </head>
+  <video autoplay muted loop id="myvideo">
+    <source src="Bg_Video1.mp4" type="video/mp4">
+  </video>
+
+  <div class="content">
+  <body>
+    <audio autoplay loop onloadeddata="DefVolume()" id="audio1">
+      <source src="BG_Song.mp3" type="audio/mpeg">
+    </audio>
+  <div class="button1">
+    <img href="javascript:void(0);" onclick="toggleMute()" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Speaker_Icon.svg/500px-Speaker_Icon.svg.png" width="50" height="50">
+  </div>
+
+  <div class="FrontPage">
+  <button onclick="document.getElementById('id01').style.display='block'"
+   class="button2">Click Here To Sign up</button>
+  </div>
+
+<div id="id01" class=login>
+  <form class="content1 animate" action="Iza_Signup.php" onsubmit="return func();" method="POST">
+    <div class="container">
+      <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'; resetfunc()" class="close" title="Close Form"> &times; </span>
+    <h1>Sign Up</h1>
+    <p>Already have an account? <a href="http://localhost/Test/Bautista_PHP/Iza_Login_Page.php" style="color:dodgerblue">Log-in here!</a></p>
+    <hr>
+    </div>
+    <label for="usrname"><b>Username</b></label>
+    <input type="text" name="username" placeholder="Enter Username" id="username" required>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" name="passkey" placeholder="Enter Password" id="pasw" onkeyup="check();" required>
+
+    <label for="psw-confirm"><b>Confirm Password</b></label>
+    <input type="password" name="psw-confirm" placeholder="Confirm Password" id="conf-pasw" onkeyup="check();" required>
+    <span id='check'></span>
+    <p>By creating an account you agree to our <a href="https://youtu.be/dQw4w9WgXcQD" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="button3">
+      <button type="submit" name="submit" Submit class="signupbtn">Sign Up</button>
+    </div>
+
+  </form>
+ </div>
+</body>
+
+  </div>
+
+<script>
+function check(){
+
+  if (document.getElementById('pasw').value ==
+    document.getElementById('conf-pasw').value) {
+    document.getElementById('check').style.color = 'green';
+    document.getElementById('check').innerHTML = 'Password Matches';
+  }
+  else {
+    document.getElementById('check').style.color = 'red';
+    document.getElementById('check').innerHTML = 'Passwords Do Not Match';
+  }
+}
+
+function func(){
+  pas = document.getElementById('pasw').value;
+  cpas = document.getElementById('conf-pasw').value;
+  if (pas != cpas){
+    alert("Passwords Do Not Match, Cannot Submit");
+    return false;
+  }
+  return true;
+
+}
+
+function DefVolume(){
+  var myAudio = document.getElementById("audio1");
+  myAudio.volume = 0.5;
+
+}
+
+function resetfunc(){
+  document.getElementById("id01").value = document.getElementById("id01").defaultValue;
+}
+
+
+function toggleMute() {
+      var myAudio = document.getElementById('audio1');
+      myAudio.muted = !myAudio.muted;
+  }
+  var login = document.getElementById('id01');
+
+
+  window.onclick = function(event) {
+      if (event.target == login) {
+          login.style.display = "none";
+      }
+  }
+
+</script>
+
+</html>
